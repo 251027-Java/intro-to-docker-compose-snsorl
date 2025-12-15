@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  app:
+    image: nginx:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+  db:
+    container_name: gitclassroom3
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb
+    ports:
+        - "5431:5432"
